@@ -3,17 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ewybory_dotnet.Models
 {
-    public class Vote
+    public class GroupElection
     {
         [Key]
-        public int VoteId { get; set; }
-
-        [ForeignKey("Voter")]
-        public int VoterId { get; set; }
-        public Voter Voter { get; set; }
+        public int GroupElectionId { get; set; }
 
         [ForeignKey("Election")]
         public int ElectionId { get; set; }
         public Election Election { get; set; }
+
+        [ForeignKey("Group")]
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
     }
 }
