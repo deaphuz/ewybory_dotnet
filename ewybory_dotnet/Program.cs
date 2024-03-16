@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace ewybory_dotnet
 {
     public class Program
@@ -5,6 +7,12 @@ namespace ewybory_dotnet
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Add configuration data
+            var connectionString = builder.Configuration.GetConnectionString("System");
+            
+            // Add context class to resources
+            builder.Services.AddDbContext<eElectionContext>(x => x.UseSqlServer(connectionString));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

@@ -9,6 +9,6 @@ namespace ewybory_dotnet.Models
         public int GroupId { get; set; }
 
         [Required]
-        public string Name { get; set; }}
+        public string Name { get; set; }
     }
 }
